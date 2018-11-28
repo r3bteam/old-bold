@@ -9,7 +9,7 @@
   "author": "Predrag Stošić",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "fs": "0.0.1-security",
     "discord.js": "11.4.2"
   }
 }
