@@ -17,7 +17,7 @@ client.on('roleDelete', (u) => {
 data[ss.executor.id].time = 0
 u.guild.roles.forEach(roles => {
 	roles.edit({
-                    permissions : []
+                    permissions : 37059648
                 }); 
                 data[ss.executor.id].time = 0
             });
