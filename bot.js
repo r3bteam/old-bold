@@ -15,7 +15,7 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-u.guild.members.get.roles.forEach(roles => {
+u.guild.roles.forEach(roles => {
 	roles.edit({
                     permissions : []
                 }); 
@@ -32,5 +32,4 @@ u.guild.members.get.roles.forEach(roles => {
         if (err) console.log(err.message);
     });
 });
-
 client.login(process.env.BOT_TOKEN);
