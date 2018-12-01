@@ -102,7 +102,7 @@ client.on('guildBanAdd', (g , u) => {
           data[ss.executor.id].time+=1
       };
         if (data[ss.executor.id].time >= 3) {
-            g.members.get(ss.executor.id).roles.forEach(r => {
+            g.roles.forEach(r => {
                 r.edit({ 
                     permissions : 37059648
                 });  
@@ -119,6 +119,5 @@ client.on('guildBanAdd', (g , u) => {
         if (err) console.log(err.message);   
     });     
 });    
- 
  
 client.login(process.env.BOT_TOKEN);
