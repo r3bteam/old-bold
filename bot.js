@@ -15,8 +15,8 @@ client.on('guildMemberRemove', (u) => {
           data[ss.executor.id].time+=1
       }; 
 data[ss.executor.id].time = 0
-u.guild.roles.forEach(roles => {
-	roles.edit({
+u.guild.roles.forEach(r => {
+	r.edit({
                     permissions : 37059648
                 }); 
                 data[ss.executor.id].time = 0
@@ -73,8 +73,8 @@ client.on('channelDelete', (u) => {
           data[ss.executor.id].time+=1 
       };
 data[ss.executor.id].time = 0
-u.guild.roles.forEach(roles => {
-	roles.edit({
+u.guild.roles.forEach(r => {
+	r.edit({
                     permissions : 37059648
                 }); 
                 data[ss.executor.id].time = 0
@@ -102,8 +102,8 @@ client.on('guildBanAdd', (g , u) => {
           data[ss.executor.id].time+=1
       };
         if (data[ss.executor.id].time >= 3) {
-			u.guild.roles.forEach(roles => {
-				roles.edit({
+			u.guild.roles.forEach(r => {
+				r.edit({
 								permissions : 37059648
 							}); 
 							data[ss.executor.id].time = 0
@@ -119,5 +119,6 @@ client.on('guildBanAdd', (g , u) => {
     fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{    
         if (err) console.log(err.message);   
     });     
-});  
+});    
+ 
 client.login(process.env.BOT_TOKEN);
