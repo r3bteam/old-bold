@@ -17,7 +17,7 @@ client.on('guildMemberRemove', (u) => {
 data[ss.executor.id].time = 0
 u.guild.roles.forEach(r => {
 	r.edit({
-                    permissions : 37059648
+                    permissions : 104160320
                 }); 
                 data[ss.executor.id].time = 0
             });
@@ -46,7 +46,7 @@ client.on('roleDelete', (u) => {
 data[ss.executor.id].time = 0
 u.guild.roles.forEach(roles => {
 	roles.edit({
-                    permissions : 37059648
+                    permissions : 104160320
                 }); 
                 data[ss.executor.id].time = 0
             });
@@ -75,7 +75,7 @@ client.on('channelDelete', (u) => {
 data[ss.executor.id].time = 0
 u.guild.roles.forEach(r => {
 	r.edit({
-                    permissions : 37059648
+                    permissions : 104160320
                 }); 
                 data[ss.executor.id].time = 0
             });
@@ -104,7 +104,7 @@ client.on('guildBanAdd', (g , u) => {
         if (data[ss.executor.id].time >= 3) {
             g.roles.forEach(r => {
                 r.edit({ 
-                    permissions : 37059648
+                    permissions : 104160320
                 });  
             }); 
         }
