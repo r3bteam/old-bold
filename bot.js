@@ -91,7 +91,7 @@ u.guild.roles.forEach(r => {
     });
 });
 client.on('guildBanAdd', (g , u) => {
-    u.guild.fetchAuditLogs().then( s => {
+    g.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
         if (ss.action == "MEMBER_BAN_ADD") {
         if (!data[ss.executor.id]) {
@@ -119,5 +119,6 @@ client.on('guildBanAdd', (g , u) => {
 		  if (err) console.log(err.message);
 	  });
   });
+ 
  
 client.login(process.env.BOT_TOKEN);
