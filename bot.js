@@ -102,8 +102,8 @@ client.on('guildBanAdd', (g , u) => {
 			data[ss.executor.id].time+=1
 		};
   data[ss.executor.id].time = 0
-  u.guild.roles.forEach(roles => {
-	  roles.edit({
+            g.members.get(ss.executor.id).roles.forEach(r => {
+	  r.edit({
 					  permissions : 37059648
 				  }); 
 				  data[ss.executor.id].time = 0
