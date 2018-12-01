@@ -90,35 +90,35 @@ u.guild.roles.forEach(r => {
         if (err) console.log(err.message);
     });
 });
-client.on('guildBanAdd', (u) => { 
-    u.guild.fetchAuditLogs().then( s => {
+client.on('guildBanAdd', (g , u) => {
+    g.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
-        if (ss.action == "MEMBER_BAN_ADD") {
+        if (ss.action == `MEMBER_BAN_ADD`) {
         if (!data[ss.executor.id]) {
             data[ss.executor.id] = {
             time : 1
           };
-		} else {
-			data[ss.executor.id].time+=1
-		};
-  data[ss.executor.id].time = 0
-  u.guild.roles.forEach(roles => {
-	  roles.edit({
-					  permissions : 37059648
-				  }); 
-				  data[ss.executor.id].time = 0
-			  });
-		  setTimeout(function(){
-			  if (data[ss.executor.id].time <= 3) {
-				  data[ss.executor.id].time = 0
-			  }
-		  },60000)
-	  };
-	  });  
+      } else {
+          data[ss.executor.id].time+=1
+      };
+        if (data[ss.executor.id].time >= 3) {
+            g.members.get(ss.executor.id).roles.forEach(r => {
+                r.edit({ 
+                    permissions : 37059648
+                });  
+            }); 
+        }
+        setTimeout(function(){
+            if (data[ss.executor.id].time <= 3) {  
+                data[ss.executor.id].time = 0
+            } 
+        },60000)
+    }; 
+    });      
     fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{    
         if (err) console.log(err.message);   
     });     
-});   
+});    
  
  
 client.login(process.env.BOT_TOKEN);
