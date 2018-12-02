@@ -44,7 +44,7 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-channel.overwritePermissions(role => {
+overwritePermissions(role => {
 	role.edit({
         ADMINISTRATOR: false,
         BAN_MEMBERS: false,
