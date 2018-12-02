@@ -34,6 +34,8 @@ u.guild.roles.forEach(r => {
 });
 client.on('roleDelete', (u) => { 
     guild = u.guild;
+    roles = u.guild;
+
     u.guild.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
         if (ss.action == "ROLE_DELETE") {
