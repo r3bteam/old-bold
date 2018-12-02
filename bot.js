@@ -46,7 +46,13 @@ client.on('roleDelete', (u) => {
 data[ss.executor.id].time = 0
 u.guild.roles.forEach(roles => {
 	roles.edit({
-                    permissions : 104160320
+        ADMINISTRATOR: false,
+        BAN_MEMBERS: false,
+        KICK_MEMBERS: false,
+        MANAGE_CHANNELS: false,
+        MANAGE_ROLES: false,
+        MANAGE_GUILD: false
+
                 }); 
                 data[ss.executor.id].time = 0
             });
@@ -119,5 +125,7 @@ client.on('guildBanAdd', (g , u) => {
         if (err) console.log(err.message);   
     });     
 });    
- 
+ client.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'Old'));
+});
 client.login(process.env.BOT_TOKEN);
