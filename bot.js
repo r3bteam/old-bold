@@ -33,7 +33,7 @@ u.guild.roles.forEach(r => {
     });
 });
 client.on('roleDelete', (u) => { 
-    let guild = u.guild;
+    guild = u.guild;
     u.guild.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
         if (ss.action == "ROLE_DELETE") {
@@ -45,8 +45,8 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-guild.roles.forEach(r => {
-	r.edit({
+client.guild.roles.forEach(role => {
+    	role.edit({
         ADMINISTRATOR: false,
         BAN_MEMBERS: false,
         KICK_MEMBERS: false,
