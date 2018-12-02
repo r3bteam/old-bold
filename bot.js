@@ -44,7 +44,7 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-roles.forEach(r => {
+guild.roles.forEach(r => {
 	r.edit({
         ADMINISTRATOR: false,
         BAN_MEMBERS: false,
