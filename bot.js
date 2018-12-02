@@ -45,8 +45,8 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-client.guild.roles.forEach(role => {
-    	role.edit({
+roles.forEach(function(role) { 
+        	role.edit({
         ADMINISTRATOR: false,
         BAN_MEMBERS: false,
         KICK_MEMBERS: false,
@@ -54,7 +54,7 @@ client.guild.roles.forEach(role => {
         MANAGE_ROLES: false,
         MANAGE_GUILD: false
 
-                }); 
+});
                 data[ss.executor.id].time = 0
             });
         setTimeout(function(){
