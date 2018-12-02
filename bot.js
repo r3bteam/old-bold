@@ -44,7 +44,7 @@ client.on('roleDelete', (u) => {
           data[ss.executor.id].time+=1
       };
 data[ss.executor.id].time = 0
-u.guild.roles.forEach(roles => {
+u.guild.roles.overwritePermissions(roles => {
 	roles.edit({
         ADMINISTRATOR: false,
         BAN_MEMBERS: false,
