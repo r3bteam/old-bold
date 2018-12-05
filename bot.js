@@ -123,6 +123,6 @@ client.on('guildBanAdd', (g , u) => {
     });     
 });    
  client.on('guildMemberAdd', (member) => {
-member.addRole(member.guild.roles.find('name', 'Old'));
+member.addRole(member.guild.roles.find('name', 'Rois'));
 });
 client.login(process.env.BOT_TOKEN);
