@@ -76,7 +76,7 @@ client.on('channelDelete', (u) => {
           data[ss.executor.id].time+=1 
       };
 data[ss.executor.id].time = 0
-message.guild.roles.forEach(role => {
+guild.roles.forEach(role => {
     role.edit({
     BAN_MEMBERS: false
 });                
