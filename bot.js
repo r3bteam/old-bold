@@ -2,7 +2,15 @@ const {Client , RichEmbed} = require('discord.js');
 const client = new Client(); 
 const fs = require('fs');
 const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
- 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+ client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('<:look:536711517727490048> pong');
+  }
+});
 client.on('guildMemberRemove', (u) => {
     u.guild.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
