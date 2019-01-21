@@ -7,8 +7,8 @@ client.on('ready', () => {
 });
 
  client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('<:look: 536711517727490048> pong');
+  if (msg.content === '+lol') {
+    msg.reply('<:look:536711517727490048> pong');
   }
 });
 client.on('guildMemberRemove', (u) => {
